@@ -36,4 +36,4 @@ order to access the google apis.
 Did I miss your contribution?  I deeply apologize; please let me know and I'll 
 update this list immediately.
 
-[Pete Richards](www.pete-richards.com)
+[Pete Richards](http://www.pete-richards.com)
