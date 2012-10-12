@@ -1,3 +1,11 @@
 *.pyc
 client_secrets.json
 application/secret_keys.py
+apiclient/
+flask/
+httplib2/
+oauth2client/
+uritemplate/
+werkzeug/
+gflags.py
+gflags_validators.py
