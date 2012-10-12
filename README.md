@@ -29,9 +29,9 @@ order to access the google apis.
 
 # thanks to
 
-[flask](http://flask.pocoo.org)
-[werkzeug](http://werkzeug.pocoo.org/)
-[google-api-python-client](https://code.google.com/p/google-api-python-client/)
+* [flask](http://flask.pocoo.org)
+* [werkzeug](http://werkzeug.pocoo.org/)
+* [google-api-python-client](https://code.google.com/p/google-api-python-client/)
 
 Did I miss your contribution?  I deeply apologize; please let me know and I'll 
 update this list immediately.
