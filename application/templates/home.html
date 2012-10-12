@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head><title>Email-to-Picasa</title></head>
+<body>
+	<h1>Email-to-Picasa</h1>
+	<p>
+		Email-to-Picasa is a simple app that uploads all images 
+		sent to an email address to the picasa album of your choosing.
+	</p>
+	<p>
+		Simply sign in using your google account, grant access to your picasa 
+		albums, select the album, and an email address will be generated for 
+		you. Come back to this site any time if you forget the email address.
+	</p>
+	{% if user %}
+	<h1>Welcome, {{ user.email() }}.</h1>
+
+		{% if credentials %}
+			You have granted access to your Picasa Albums, you're ready to 
+			<a href="{{url_for('list_albums')}}">map your albums!</a>
+		{% else %}
+			You have not yet granted access to Picasa, click 
+			<a href="{{url_for('start_auth')}}">here</a> to grant access.
+		{% endif %}
+		
+		{% if mappings %}
+			<br/>
+			You have mapped the following albums:
+			<ul>
+			{% for map in mappings %}
+				<li>
+					{{map.email_address}}@email-to-picasa.appspot.com ==> 
+					{{ map.album['title']['$t'] }}
+				</li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+
+	{% else %}
+		You are not logged in, click <a href="{{url_for('login')}}">here</a> 
+		to log in.
+	{% endif %}
+
+</body>
+</html>

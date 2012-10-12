@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head><title>Email-to-Picasa: Your Album List</title></head>
+<body>
+	<h1>Your Albums</h1>
+	<a href="{{ url_for('list_albums', refresh=True) }}">refresh</a>
+	<a href="{{ url_for('home') }}">home</a>
+	{% if album_list %}
+	<ul>
+		{% for album in album_list %}
+			<li>
+				{{ album['title']['$t'] }} 
+				{% if album['gphoto$id']['$t'] in album_mappings %}
+					==> {{album_mappings[album['gphoto$id']['$t']].email_address}}@email-to-picasa.appspot.com
+				{% else %}
+					<a href="{{url_for('select_album', album_id=album['gphoto$id']['$t'])}}">Map</a>
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+	{% else %}
+	You have no albums.
+	{% endif %}
+</body>
+</html>

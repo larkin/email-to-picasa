@@ -1,0 +1,33 @@
+application: email-to-picasa
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+builtins:
+- admin_redirect: on
+- deferred: on
+
+inbound_services:
+- mail
+
+handlers:
+
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /admin/.*
+  script: google.appengine.ext.admin.application
+  login: admin
+  
+- url: /_ah/mail/.+
+  script: application.mail.inbound_handler
+  login: admin
+
+- url: .*
+  script: application.app
+
+libraries:
+- name: jinja2
+  version: latest
